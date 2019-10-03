@@ -2,7 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../easycow/apiServer/bootstrap/forever/production.json" beforeDir="false" afterPath="$PROJECT_DIR$/../easycow/apiServer/bootstrap/forever/production.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.sequelizerc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/seq-cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20190918143824-create-user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191002145206-create-status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191002145420-create-user-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191002145702-create-categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191002150105-create-education-level-type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191003090421-create-user-categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191003092412-create-channels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20191003094822-create-videos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/channels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/educationalleveltypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/educationleveltype.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user_categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/usertypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/videos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/assets/migrations/create-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/assets/migrations/skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/assets/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/assets/models/model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/assets/seeders/skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/migrate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/migrate_undo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/migrate_undo_all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/migration_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/model_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/seed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/seed_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/commands/seed_one.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/core/migrator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/core/yargs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/asset-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/config-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/generic-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/init-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/migration-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/model-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/path-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/template-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/umzug-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/version-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/lib/helpers/view-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/scripts/mocha-bootload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/assets/migrations/create-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/assets/migrations/skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/assets/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/assets/models/model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/assets/seeders/skeleton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/migrate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/migrate_undo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/migrate_undo_all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/migration_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/model_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/seed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/seed_generate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/commands/seed_one.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/core/migrator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/core/yargs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/asset-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/config-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/generic-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/init-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/migration-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/model-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/path-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/template-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/umzug-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/version-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/helpers/view-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/sequelize-cli/src/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,12 +97,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../easycow" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1R0JcTVgfT3G4yIac3u3dCgZKaL" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -46,7 +143,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568798158894</updated>
-      <workItem from="1568798165738" duration="1234000" />
+      <workItem from="1568798165738" duration="4822000" />
+      <workItem from="1568814325855" duration="4303000" />
+      <workItem from="1570018034803" duration="10261000" />
     </task>
     <servers />
   </component>
@@ -58,10 +157,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

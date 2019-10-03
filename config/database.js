@@ -1,6 +1,5 @@
-const mysql           = require('mysql');
-const dotenv = require('dotenv');
-dotenv.config();
+const sequelize           = require('');
+
 
 module.exports = class Database{
 
