@@ -4,16 +4,35 @@
   "description": "knowledge app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": " pm2-dev start app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production pm2  start app.js --name pro_api_server"
   },
   "author": "codex-tel",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-memcached": "^1.0.0",
+    "connect-redis": "^3.4.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
-    "express": "^4.17.1",
+    "express": "^4.16.4",
+    "express-form-data": "^2.0.8",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.15.6",
+    "express-validator": "^6.0.1",
+    "forever": "^1.0.0",
+    "mysql": "^2.16.0",
     "mysql2": "^1.7.0",
-    "pm2": "^3.5.1",
-    "sequelize": "^5.18.4",
-    "sequelize-cli": "^5.5.1"
+    "node-cron": "^2.0.3",
+    "paystack": "^2.0.1",
+    "php-unserialize": "0.0.1",
+    "pug": "^2.0.3",
+    "redis": "^2.8.0",
+    "sequelize": "^5.19.2",
+    "socket.io": "^2.2.0",
+    "validate": "^4.5.1",
+    "vhost": "^3.0.2"
   }
 }
