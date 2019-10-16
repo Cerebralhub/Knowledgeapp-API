@@ -1,4 +1,4 @@
-let user            = require('../controllers/user');
+let user            = require('../controllers/superAdmin');
 let userType        = require('../config/userTypes');
 
 module.exports = function admin(){

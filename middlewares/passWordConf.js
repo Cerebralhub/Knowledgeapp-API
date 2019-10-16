@@ -1,5 +1,5 @@
 let passwordHelper =  require( '../helpers/passwordHelper');
-let user            = require('../controllers/user');
+let user            = require('../controllers/superAdmin');
 
 module.exports = function passWordConf(){
     return function (req,res,next) {

@@ -1,10 +1,20 @@
 'use strict'
-var mysql           = require('mysql');
+const jwt                              = require('jsonwebtoken');
+const fs                               = require('fs');
+const jwtVerifier                      = require('../helpers/jwtVerifier');
+const {Op}                             = require('sequelize');
+
+
+
 
 let smooch = function (options) {
   let smoochOptions = options||{};
+
   return function (req,res,next) {
     let message ={};
+    //just a hack
+    !req.query.q?req.query.q=null:"";
+
     let smoochObj = {
       withClientError:function (errorCode) {
 
@@ -79,6 +89,51 @@ let smooch = function (options) {
         message.error.data = data;
         return this;
       },
+
+      withPagination: function(){
+
+
+        if (message.success.data){
+
+
+          // Protect your data at all cost
+          let lastId = null;
+          try{
+             lastId      = message.success.data[message.success.data.length - 1].id;
+
+          }catch (e) {
+            console.log(e);
+          }
+
+
+          let payLoad       = {data:lastId};
+          let newToken;
+
+          //Implement JWT
+          var privateKey = fs.readFileSync('jwt_pk.key','utf8');
+
+        return new Promise((resolve,reject)=>{
+
+            jwt.sign(payLoad,privateKey, { expiresIn: '2h',algorithm: 'RS256' },   (err,code)=> {
+
+              if (err){
+
+                reject(err)
+              }else{
+
+                newToken = code;
+                message.success.pagination = {
+                  prevPageToken : req.query.pagination?req.query.pagination.nextPageToken:undefined,
+                  nextPageToken : newToken
+                };
+                resolve(this);
+              }
+            });
+
+          });
+
+        }
+      },
       reply:function () {
 
         message.success?res.status(message.success.code).json(message):res.status(message.error.code).json(message);
@@ -90,20 +145,24 @@ let smooch = function (options) {
 
 
     let paginationHelper = {
-      paginate: function (perPage) {
-        if (req.query.paginate) {
-          req.query.page?"":req.query.page  = 1;
-          typeof perPage !== "number"? new Error("number of pages must be an integer"):'';
-          req.query.page = parseInt(req.query.page,10);
-          let nextRecords = (req.query.page - 1) * perPage;
-          req.paginate.nextPage = req.query.page + 1;
-          return `LIMIT ${perPage} OFFSET ${mysql.escape(nextRecords)}`;
+      paginate:  function (colomn) {
+
+
+        let payload =  jwtVerifier(req.query.paginationToken)||null;
+        if (payload) {
+          let x = req.query.q = {
+            [colomn||'id']:{
+              [Op.gt]: payload.data
+            }
+          }
+
+
         }
-        return '';
       }
     };
     Object.assign(res,smoochObj);
     Object.assign(req,paginationHelper);
+
 
     next();
   }

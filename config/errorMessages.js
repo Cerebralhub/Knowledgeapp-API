@@ -4,15 +4,20 @@ module.exports = {
     errMessage:"Resource not verified"
   },
   blocked:{
-    errId:"E419",
+    errId:"E411",
     errMessage:"Resource blocked"
   },
   resetPass:{
-    errId:"E440",
+    errId:"E412",
     errMessage:"Password could not be reset"
   },
   acctNotExisting:{
-    errId:"E441",
+    errId:"E413",
     errMessage:"Account doesn't exist"
+  },
+  authMethodError:{
+    errId:"E414",
+    errMessage:"Authetication Method not allowed"
   }
+
 };

@@ -2,8 +2,8 @@ const express      	= require('express');
 const app           = express();
 let {apiV1} 		= require('../routes/api.v1');
 var cors            = require('cors');
-const dotenv        = require('dotenv');
-dotenv.config();
+//Initialize Database Config
+// require('../config/database');
 
 
 
@@ -12,8 +12,7 @@ module.exports = class server{
 
   start(){
     //middlewares
-    app.use('/api/v1',express.static('static'));
-
+    app.use('/v1',express.static('static'));
 
     //routes
     apiV1(app);

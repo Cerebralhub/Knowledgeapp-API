@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../easycow/.idea/easyco.iml" filepath="$PROJECT_DIR$/../easycow/.idea/easyco.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/knowledgeApp.iml" filepath="$PROJECT_DIR$/.idea/knowledgeApp.iml" />
     </modules>
   </component>

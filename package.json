@@ -23,6 +23,7 @@
     "express-session": "^1.15.6",
     "express-validator": "^6.0.1",
     "forever": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.7.0",
     "node-cron": "^2.0.3",
@@ -30,7 +31,7 @@
     "php-unserialize": "0.0.1",
     "pug": "^2.0.3",
     "redis": "^2.8.0",
-    "sequelize": "^5.19.2",
+    "sequelize": "^5.19.4",
     "socket.io": "^2.2.0",
     "validate": "^4.5.1",
     "vhost": "^3.0.2"
