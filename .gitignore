@@ -1,2 +1,6 @@
 jwt_pk.key
 jwt_pubk.key
+
+node_modules
+/node_modules
+./node_modules
