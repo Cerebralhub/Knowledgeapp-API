@@ -2,39 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/jwtVerifier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jwt_pk.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jwt_pubk.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/paginator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/knowledgeApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/knowledgeApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/errorMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/errorMessages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/smooch.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/smooch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/isLoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isLoggedIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/passWordConf.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/passWordConf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/superAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/globals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/globals.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/process.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/process.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequelize/lib/dialects/abstract/query-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sequelize/lib/dialects/abstract/query-generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequelize/lib/query-interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sequelize/lib/query-interface.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequelize/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sequelize/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/fileUploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/fileUploader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +83,8 @@
       <workItem from="1570707702827" duration="2049000" />
       <workItem from="1571042936565" duration="20374000" />
       <workItem from="1571070242782" duration="2358000" />
-      <workItem from="1571220125006" duration="1119000" />
+      <workItem from="1571220125006" duration="1125000" />
+      <workItem from="1571301365396" duration="3688000" />
     </task>
     <servers />
   </component>

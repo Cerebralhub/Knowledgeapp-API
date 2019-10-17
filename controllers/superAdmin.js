@@ -35,7 +35,7 @@ module.exports = class SuperAdmin{
         req.paginate();
 
         userModel.findAll(
-            
+
             {
                 where : req.query.q,
                 limit: req.query.perPage
@@ -71,6 +71,8 @@ module.exports = class SuperAdmin{
     }
 
 
+    static uploadVideos(req,res){
 
+    }
 
 };
