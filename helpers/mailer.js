@@ -26,7 +26,7 @@ module.exports = class mailer {
     return this;
   }
   subject(subject){
-    this.subject = subject||"Easycow Email";
+    this.subject = subject||"Knowledge App";
     return this;
   }
 

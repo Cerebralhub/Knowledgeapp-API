@@ -23,6 +23,7 @@ module.exports = class Users{
     }
 
    static login(req,res){
+
        let userDet;
 
        userModel.findOne({

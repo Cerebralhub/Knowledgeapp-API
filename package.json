@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": " pm2-dev start app.js",
+    "dev2": "nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production pm2  start app.js --name pro_api_server"
   },
@@ -28,6 +29,7 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.7.0",
     "node-cron": "^2.0.3",
+    "nodemon": "^1.19.4",
     "paystack": "^2.0.1",
     "php-unserialize": "0.0.1",
     "pug": "^2.0.3",
