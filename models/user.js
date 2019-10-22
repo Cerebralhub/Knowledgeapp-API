@@ -90,12 +90,16 @@ class Users extends Model{}
       modelName: 'user' 
     });
 
-  users.associate = function(models) {
-      Users.hasMany(models.status, {
-        foreignKey: 'statusId',
-        as: 'id'
-      })
-  };
+    users.associate = function (models) {
+      users.belongsTo(models.Statuses);
+    };
+
+  // users.associate = function(models) {
+  //     Users.hasMany(models.status, {
+  //       foreignKey: 'statusId',
+  //       as: 'id'
+  //     })
+  // };
 
   // Users.hasMany(Status);
 

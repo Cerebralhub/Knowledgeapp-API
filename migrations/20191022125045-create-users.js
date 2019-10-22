@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       user_name: {
-        allowNull:false,
+        allowNull: true,
         unique: true,
         type: Sequelize.STRING(50)
       },
@@ -27,7 +27,11 @@ module.exports = {
       },
       statusId: {
         allowNull:false,
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        references: {
+          model: 'Statuses',
+          key: 'id'
+        },
       },
       email: {
         allowNull:false,
@@ -35,7 +39,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       emailVerifiedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       userType: {
@@ -47,11 +51,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       dob: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATEONLY
       },
       resetkey:{
-        allowNull:false,
+        allowNull: true,
         type:Sequelize.STRING(400)
       },
       createdAt: {
