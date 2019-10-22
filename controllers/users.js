@@ -4,6 +4,8 @@ const randomKey                        = require('../helpers/randomizer');
 const passwordHelper                   = require('../helpers/passwordHelper');
 const error                            = require('../config/errorMessages');
 const fs                               = require('fs');
+const statuses                         = require('../config/status');
+
 module.exports = class Users{
 
     static create(userDetails){
@@ -17,8 +19,7 @@ module.exports = class Users{
                     userDetails.resetKey        =   key;
                     userDetails.password        =   passwordHelper.hash(userDetails.password);
                 }).then(()=>{
-                    console.log(userDetails)
-                    return  userModel.create(userDetails,{validate:false});
+                    return  userModel.create(userDetails,{validate:true});
                 })
     }
 
@@ -29,8 +30,8 @@ module.exports = class Users{
        userModel.findOne({
             where:{email:req.body.email}
         }).then((userResult)=>{
-            userDet = userResult.toJSON();
             if(userResult){
+                userDet = userResult.toJSON();
                 return passwordHelper.isSame(req.body.password,userDet.password)
             }else{
                 return res.withClientError(404).withErrorData(error.acctNotExisting).repy();
@@ -59,5 +60,42 @@ module.exports = class Users{
        })
    }
 
+   static accountExist(email){
+        let verifyEmail = email||req.body.email
+       userModel.findOne({
+           where:{email:verifyEmail}
+       }).then((result)=>{
+           if (result){
+               return true;
+           }else{
+               false;
+           }
+       })
+   }
 
+   static verify(req,res){
+       userModel.update(
+           {
+                 status             :   statuses.active,
+                 resetKey           :   null,
+                 emailVerifiedAt    :   Date.now()
+           },
+           {
+
+                where:{
+                        email   :req.params.email,
+                        resetKey: req.params.token
+                     },
+                returning:true
+            }
+       ).then((user)=>{
+          if (user){
+              res.withSuccess(200).reply();
+          }else{
+              res.withClientError(404).reply();
+          }
+       }).catch((error)=>{
+           res.withServerError(500).withErrorData(error).reply();
+       })
+   }
 }

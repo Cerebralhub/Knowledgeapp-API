@@ -3,6 +3,8 @@ const user                              =  require('./users');
 const userTypes                         =  require('../config/userTypes');
 const randomKeys                        =  require('../helpers/randomizer');
 const status                            =   require('../config/status');
+const mailHelper                        =   require('../helpers/mailer');
+const urlJoiner                         =   require('url-join');
 
 module.exports = class SuperAdmin{
 
@@ -21,10 +23,23 @@ module.exports = class SuperAdmin{
         randomKeys(30).then((keys)=>{
             userDets.reset_key = keys;
             return  user.create(userDets)
-        }).then((keys)=>{
+        }).then((result)=>{
+
+            let userResult = result.toJSON();
+
+            let url =   urlJoiner(process.env.APP_URL,'user/verify',userResult.email,userResult.resetKey );
+
+            let mailer = new mailHelper();
+
+            mailer.sender('Knowledge App Verification')
+                .recipient(userDets.email)
+                .subject('Knowledge App Email Verification')
+                .template('account_verification.pug',{url,userEmail:userDets.email})
+                .send(4);
             res.withSuccess(201).reply();
+
         }).catch((error)=>{
-            res.withServerError(500).reply();
+            res.withServerError(500).withErrorData(error).reply();
             console.log(error);
         })
 
