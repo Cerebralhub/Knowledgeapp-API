@@ -18,18 +18,20 @@ module.exports = {
       },
       user_name: {
         allowNull:false,
+        unique: true,
         type: Sequelize.STRING(50)
       },
       password: {
         allowNull:false,
         type: Sequelize.STRING(550)
       },
-      status:{
+      statusId: {
         allowNull:false,
-        type:Sequelize.INTEGER,
+        type:Sequelize.INTEGER
       },
       email: {
         allowNull:false,
+        unique: true,
         type: Sequelize.STRING
       },
       emailVerifiedAt: {
@@ -48,13 +50,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATEONLY
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
       resetkey:{
         allowNull:false,
         type:Sequelize.STRING(400)
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
