@@ -55,7 +55,7 @@ module.exports.apiV1 =  function (app) {
 
 
   //Super Admin Routes
-    router.post('/admin/users/create', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
+    router.post('/admin/users/create', cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
     router.get('/admin/users', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.getUsers(req,res)});
     router.get('/admin/users/update', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.updateUser(req,res)});
 

@@ -15,7 +15,7 @@ module.exports = class SuperAdmin{
             last_name   : req.body.last_name,
             email       : req.body.email,
             userType    : userTypes.superAdmin,
-            status      : status.unverified,
+            statusId      : status.unverified,
             password    : req.body.password
 
         };
