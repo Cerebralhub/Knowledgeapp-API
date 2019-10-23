@@ -44,11 +44,19 @@ module.exports = {
       },
       userType: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        // references: {
+        //   model: 'UserTypes',
+        //   key: 'id'
+        // },
       },
       category: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // references: {
+        //   model: 'Categories',
+        //   key: 'id'
+        // },
       },
       dob: {
         allowNull: true,
