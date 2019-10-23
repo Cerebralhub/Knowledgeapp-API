@@ -1,10 +1,96 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Users = sequelize.define('Users', {
-    first_name: DataTypes.STRING
-  }, {});
-  Users.associate = function(models) {
-    // associations can be defined here
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
+
+class Users extends Model{}
+
+const users = Users.init({
+  first_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  last_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  user_name:{
+    //User Names shouldn't be more than 50 characters
+    //TODO validate user_name uniqueness//
+    type:DataTypes.STRING(50),
+    allowNull: true,
+
+    validate: {
+      max:50,
+        isUnique:function(value){
+          if (value){
+              return users.findOne({
+                  where:{userName:value}
+              }).then((user)=>{
+                  if (user) {
+                      throw new Error('Email already in use');
+                  }
+              })
+          }
+        }
+    },
+    category:{
+      type: DataTypes.INTEGER,
+      validate:{
+        isNumeric:true
+      }
+    }
+  },
+  email: {
+    type:DataTypes.STRING,
+    allowNull: false,
+
+      validate:{
+      isEmail: true,
+      isUnique:function(value){
+        return users.findOne({
+                  where:{email:value}
+              }).then((user)=>{
+                    if (user) {
+                        throw new Error('Email already in use');
+                    }
+              })
+      }
+
+    },
+  },
+  dob:{
+    type:DataTypes.DATEONLY,
+    validate:{
+      isDate:true
+    }
+  },
+  password:{
+    type:DataTypes.STRING(550),
+    allowNull: false,
+  },
+  status:{
+    type:DataTypes.INTEGER,
+    allowNull: false,
+  },
+  userType:{
+    type:DataTypes.INTEGER,
+    allowNull: false,
+  },
+  resetKey:{
+    type:DataTypes.STRING(550),
+    allowNull: true,
+  },
+  emailVerifiedAt:{
+    type:DataTypes.DATE,
+    allowNull: true,
+  },
+  },
+  {
+    sequelize:sequelize,
+  });
+
+  users.associate = function(models) {
+      // associations can be defined here
   };
-  return Users;
-};
+
+  module.exports = users;

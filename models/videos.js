@@ -8,24 +8,18 @@ class Videos extends Models{}
 let videos = Videos.init({
   video_name: {
     type: DataTypes.STRING,
-    validate: {
-      isNull: false,
-    }
+    allowNull: false,
   },
   video_category: {
     type: DataTypes.INTEGER,
   },
   video_url: {
     type: DataTypes.STRING,
-    validate: {
-      isNull: false,
-    }
+    allowNull: false,
   },
   video_description: {
     type: DataTypes.TEXT,
-    validate: {
-      isNull: false,
-    }
+    allowNull: false,
   }
 }, {
   sequelize,
