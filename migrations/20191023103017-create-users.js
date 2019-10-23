@@ -17,44 +17,58 @@ module.exports = {
         type: Sequelize.STRING
       },
       user_name: {
-        allowNull:false,
+        allowNull: true,
+        unique: true,
         type: Sequelize.STRING(50)
       },
       password: {
         allowNull:false,
         type: Sequelize.STRING(550)
       },
-      status:{
+      statusId: {
         allowNull:false,
-        type:Sequelize.INTEGER,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Statuses',
+          key: 'id'
+        },
       },
       email: {
         allowNull:false,
+        unique: true,
         type: Sequelize.STRING
       },
       emailVerifiedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       userType: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'UserTypes',
+          key: 'id'
+        },
       },
       category: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // references: {
+        //   model: 'Categories',
+        //   key: 'id'
+        // },
       },
       dob: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATEONLY
+      },
+      resetkey:{
+        allowNull: true,
+        type:Sequelize.STRING(400)
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      resetkey:{
-        allowNull:false,
-        type:Sequelize.STRING(400)
       },
       updatedAt: {
         allowNull: false,

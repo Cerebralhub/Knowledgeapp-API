@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false
       },
       video_description: {
-        type: Sequelize.STRING(500),
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {
