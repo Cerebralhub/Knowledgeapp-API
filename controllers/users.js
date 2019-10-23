@@ -5,6 +5,8 @@ const passwordHelper                   = require('../helpers/passwordHelper');
 const error                            = require('../config/errorMessages');
 const fs                               = require('fs');
 const statuses                         = require('../config/status');
+const urlJoiner                        = require('url-join');
+const mailHelper                       = require('../helpers/mailer');
 
 module.exports = class Users{
 
@@ -98,4 +100,100 @@ module.exports = class Users{
            res.withServerError(500).withErrorData(error).reply();
        })
    }
+
+   static passwordResetInit(req,res){
+
+        let resetKey;
+
+       let payLoad = {
+           email:req.body.email
+       };
+
+       //Implement JWT
+       var privateKey = fs.readFileSync('jwt_pk.key','utf8');
+
+       jwt.sign(payLoad,privateKey, { expiresIn: '1h',algorithm: 'RS256' },function (err,resetKey) {
+
+           if (!err){
+               userModel.update(
+                   {
+                       resetKey
+                   },
+                   {
+
+                       where:{
+                           email   :req.body.email,
+                       },
+                       returning:true
+                   }
+               ).then((user)=>{
+                   if (user){
+
+                       let url =   urlJoiner(process.env.APP_URL,'password/reset',resetKey );
+
+                       let mailer = new mailHelper();
+
+                       mailer.sender('Knowledge App ')
+                           .recipient(req.body.email)
+                           .subject('Knowledge App Password Reset')
+                           .template('password_reset.pug',{url,email:req.body.email})
+                           .send(4);
+
+                       res.withSuccess(200).reply();
+
+                   }else{
+                       res.withClientError(404).reply();
+                   }
+               }).catch((error)=>{
+                   console.log(error);
+                   return res.withServerError(500).withErrorData(error).reply();
+               })
+           }else{
+               return res.withServerError(500).reply();
+           }
+       })
+
+   }
+    static passwordReset(req,res){
+
+        let token     = req.params.token;
+
+        let cert      = fs.readFileSync('jwt_pubk.key','utf8');  // get public key
+
+        jwt.verify(token, cert, { algorithms: ['RS256'] }, function(err, payload) {
+
+            if (err){
+                res.withClientError(403).withErrorData(err).reply();
+            }else{
+
+                userModel.update(
+                    {
+                        password:req.body.password,
+                        resetKey:null
+                    },
+                    {
+                        where:{
+                            email   :   payload.email,
+                            resetKey:   token
+                        },
+                    }
+                ).then((result)=>{
+                    //Was anything updated?
+                    if (result[0] > 0){
+                        //If the reset was done
+                        return res.withSuccess(200).reply();
+                    }else{
+                        //There was no update
+                        return res.withClientError(404).reply();
+                    }
+                }).catch(()=>{
+                    //There was an issue on updating the db
+                    return res.withServerError(500).reply();
+                })
+
+
+            }
+
+        });
+    }
 }

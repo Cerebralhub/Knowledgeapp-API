@@ -49,6 +49,8 @@ module.exports.apiV1 =  function (app) {
   //General
     router.post('/login',  cors(corsOptions),(req,res)=> {user.login(req,res)});
     router.get('/user/verify/:email/:token',  cors(corsOptions),(req,res)=> {user.verify(req,res)});
+    router.post('/password/reset/init',  cors(corsOptions),(req,res)=> {user.passwordResetInit(req,res)});
+    router.post('/password/reset/:token',  cors(corsOptions),(req,res)=> {user.passwordReset(req,res)});
 
 
 
