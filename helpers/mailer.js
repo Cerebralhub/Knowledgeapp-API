@@ -1,5 +1,8 @@
-let nodemailer = require("nodemailer");
-let mailConfig = require('../config/mail');
+let nodemailer      = require("nodemailer");
+let mailConfig      = require('../config/mail');
+let pug             = require('pug');
+let path            = require('path');
+
 module.exports = class mailer {
   constructor(){
     this.html;
@@ -26,7 +29,7 @@ module.exports = class mailer {
     return this;
   }
   subject(subject){
-    this.subject = subject||"Easycow Email";
+    this.subject = subject||"Knowledge App";
     return this;
   }
 
@@ -45,6 +48,22 @@ module.exports = class mailer {
     return this;
   }
 
+  template(tempPath,data){
+
+    let templatePath = path.join(process.cwd(),'resources/mail/',tempPath);
+    console.log(templatePath,'template path')
+    let options = {
+      basedir: path.join(process.cwd(),'resources/mail')
+    };
+
+    var fn = pug.compileFile(templatePath, options);
+
+
+    this.html = fn(data);
+    return this;
+
+  }
+
   send(message,retry,retries = 0){
     console.log(retries,'retries');
     let defaultMessage = {};
@@ -56,7 +75,7 @@ module.exports = class mailer {
    return new Promise( (resolve,reject) => {
      console.log("sending mail...")
       this.mailConnection.sendMail(defaultMessage).then(function (result) {
-        console.log("mail sent")
+        console.log("mail sent");
         resolve(result);
       }).catch( (error)=> {
         if (retry !== 'undefined' && retries <= retry  ){

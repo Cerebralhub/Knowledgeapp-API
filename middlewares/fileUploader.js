@@ -16,4 +16,7 @@ module.exports = class fileUploader {
   upload(){
     fs.readFile()
   }
+
+
+
 }
