@@ -27,7 +27,7 @@ module.exports = {
       },
       statusId: {
         allowNull:false,
-        type:Sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         references: {
           model: 'Statuses',
           key: 'id'
@@ -44,11 +44,11 @@ module.exports = {
       },
       userType: {
         allowNull: false,
-        type: Sequelize.STRING,
-        // references: {
-        //   model: 'UserTypes',
-        //   key: 'id'
-        // },
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'UserTypes',
+          key: 'id'
+        },
       },
       category: {
         allowNull: false,

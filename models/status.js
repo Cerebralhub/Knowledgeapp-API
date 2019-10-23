@@ -20,6 +20,11 @@ Status.associate = function(models) {
     foreignKey: 'statusId',
     key: 'id'
   })
+
+  Status.hasMany(models.categories, {
+    foreignKey: 'statusId',
+    key: 'id'
+  })
 }
 
 // module.exports = (sequelize, DataTypes) => {

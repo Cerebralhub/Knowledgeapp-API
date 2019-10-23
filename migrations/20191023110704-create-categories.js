@@ -12,9 +12,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
       },
-      status: {
-        type: Sequelize.STRING,
-        allowNull:false
+      statusId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Statuses',
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,
