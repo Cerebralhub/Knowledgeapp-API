@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/mail/password_reset.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20190918143824-create-user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191002145206-create-status.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191002145420-create-user-types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191002145702-create-categories.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191002150105-create-education-level-type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191003090421-create-user-categories.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191003092412-create-channels.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191003094822-create-videos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
-    </list>
+    <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +86,7 @@
       <workItem from="1571732454468" duration="14896000" />
       <workItem from="1571750760724" duration="9525000" />
       <workItem from="1571826168605" duration="10627000" />
-      <workItem from="1571839105341" duration="918000" />
+      <workItem from="1571839105341" duration="1721000" />
     </task>
     <servers />
   </component>
