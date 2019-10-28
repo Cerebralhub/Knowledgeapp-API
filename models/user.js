@@ -73,7 +73,7 @@ class Users extends Model{}
                     allowNull: false,
 
                 },
-                status:{
+                statusId:{
                     type:DataTypes.INTEGER,
                     allowNull: false,
 

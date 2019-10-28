@@ -68,7 +68,7 @@ const users = Users.init({
     type:DataTypes.STRING(550),
     allowNull: false,
   },
-  status:{
+  statusId:{
     type:DataTypes.INTEGER,
     allowNull: false,
   },

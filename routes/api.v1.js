@@ -7,13 +7,15 @@ let router      = express.Router();
 let superAdmin  = require('../controllers/superAdmin');
 let user        = require('../controllers/users');
 // let admin       = require('../middlewares/admin');
-let isSuperAdmin = require('../middlewares/superAdmin');
-let fileUpload  = require('../middlewares/fileUploader');
-let passwordConf = require('../middlewares/passWordConf');
-let isLoggedIn                                     = require('../middlewares/isLoggedIn');
-let acceptedHeader                                 = require('../middlewares/acceptedHeader');
-let validationHandler                              = require('../middlewares/errorHandler');
-let smooch                                         = require('../helpers/smooch');
+let isSuperAdmin               = require('../middlewares/superAdmin');
+let fileUpload                 = require('../middlewares/fileUploader');
+let passwordConf               = require('../middlewares/passWordConf');
+let isLoggedIn                 = require('../middlewares/isLoggedIn');
+let acceptedHeader             = require('../middlewares/acceptedHeader');
+let validationHandler          = require('../middlewares/errorHandler');
+let smooch                     = require('../helpers/smooch');
+let multer                     = require('multer');
+
 // let {farmCreationValidator,deleteFarmActivityValidator,farmUpdateValidator,allFarmsValidator,farmActivityValidator,farmUpdateActivityValidator,allFarmActivityValidator}    = require('../validators/farms');
 
 
@@ -28,7 +30,7 @@ module.exports.apiV1 =  function (app) {
   let corsOptions = {
     origin: true,
     credentials: true,
-  }
+  };
 
 
 
@@ -44,7 +46,9 @@ module.exports.apiV1 =  function (app) {
      return res.status(200).send({
        message: 'Dear Nerd, you have landed on the API!!'
      })
-   })
+   });
+
+
 
   //General
     router.post('/login',  cors(corsOptions),(req,res)=> {user.login(req,res)});
@@ -55,7 +59,7 @@ module.exports.apiV1 =  function (app) {
 
 
   //Super Admin Routes
-    router.post('/admin/users/create', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
+    router.post('/admin/users/create', cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
     router.get('/admin/users', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.getUsers(req,res)});
     router.get('/admin/users/update', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.updateUser(req,res)});
 
