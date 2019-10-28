@@ -13,11 +13,8 @@ let passwordConf               = require('../middlewares/passWordConf');
 let isLoggedIn                 = require('../middlewares/isLoggedIn');
 let acceptedHeader             = require('../middlewares/acceptedHeader');
 let validationHandler          = require('../middlewares/errorHandler');
+let youtubeSaver               = require('../middlewares/youtube_videos_upload');
 let smooch                     = require('../helpers/smooch');
-let multer                     = require('multer');
-
-// let {farmCreationValidator,deleteFarmActivityValidator,farmUpdateValidator,allFarmsValidator,farmActivityValidator,farmUpdateActivityValidator,allFarmActivityValidator}    = require('../validators/farms');
-
 
 
 
@@ -56,12 +53,11 @@ module.exports.apiV1 =  function (app) {
     router.post('/password/reset/init',  cors(corsOptions),(req,res)=> {user.passwordResetInit(req,res)});
     router.post('/password/reset/:token',  cors(corsOptions),(req,res)=> {user.passwordReset(req,res)});
 
-
-
   //Super Admin Routes
     router.post('/admin/users/create', cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
-    router.get('/admin/users', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.getUsers(req,res)});
-    router.get('/admin/users/update', isLoggedIn(), isSuperAdmin(), cors(corsOptions),(req,res)=> {superAdmin.updateUser(req,res)});
+    router.get('/admin/users', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.getUsers(req,res)});
+    router.get('/admin/users/update', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.updateUser(req,res)});
+    router.post('/admin/videos/create', [isLoggedIn(), isSuperAdmin(),youtubeSaver(), cors(corsOptions)],(req,res)=> {superAdmin.uploadVideos(req,res)});
 
 
 

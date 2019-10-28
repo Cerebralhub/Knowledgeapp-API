@@ -5,7 +5,6 @@ const randomKeys                        =  require('../helpers/randomizer');
 const status                            =   require('../config/status');
 const mailHelper                        =   require('../helpers/mailer');
 const urlJoiner                         =   require('url-join');
-const youtube                           =   require('../vendors/youtube');
 
 module.exports = class SuperAdmin{
 

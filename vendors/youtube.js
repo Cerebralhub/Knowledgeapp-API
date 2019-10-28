@@ -32,50 +32,50 @@ module.exports = class Youtube {
 
 
     }
-
-     [authorize](token){
-
-         let clientSecret   = credentials.installed.client_secret;
-         let clientId       = credentials.installed.client_id;
-         let redirectUrl    = credentials.installed.redirect_uris[0];
-         let oauth2Client   = new OAuth2(clientId, clientSecret, redirectUrl);
-
-         // Check if we have previously stored a token.
-         fs.readFile(TOKEN_PATH, function(err, token) {
-             if (err) {
-                 this[getNewToken](oauth2Client, callback);
-             } else {
-                 oauth2Client.credentials = JSON.parse(token);
-                 callback(oauth2Client);
-             }
-         });
-
-     }
-
-     [getNewToken] (){
-
-         let authUrl = oauth2Client.generateAuthUrl({
-             access_type: 'offline',
-             scope: SCOPES
-         });
-         console.log('Authorize this app by visiting this url: ', authUrl);
-         let rl      = readline.createInterface({
-             input  : process.stdin,
-             output : process.stdout
-         });
-         rl.question('Enter the code from that page here: ', function(code) {
-             rl.close();
-             oauth2Client.getToken(code, function(err, token) {
-                 if (err) {
-                     console.log('Error while trying to retrieve access token', err);
-                     return;
-                 }
-                 oauth2Client.credentials = token;
-                 storeToken(token);
-                 callback(oauth2Client);
-             });
-         });
-     }
+     //
+     // [authorize](token){
+     //
+     //     let clientSecret   = credentials.installed.client_secret;
+     //     let clientId       = credentials.installed.client_id;
+     //     let redirectUrl    = credentials.installed.redirect_uris[0];
+     //     let oauth2Client   = new OAuth2(clientId, clientSecret, redirectUrl);
+     //
+     //     // Check if we have previously stored a token.
+     //     fs.readFile(TOKEN_PATH, function(err, token) {
+     //         if (err) {
+     //             this[getNewToken](oauth2Client, callback);
+     //         } else {
+     //             oauth2Client.credentials = JSON.parse(token);
+     //             callback(oauth2Client);
+     //         }
+     //     });
+     //
+     // }
+     //
+     // [getNewToken] (){
+     //
+     //     let authUrl = oauth2Client.generateAuthUrl({
+     //         access_type: 'offline',
+     //         scope: SCOPES
+     //     });
+     //     console.log('Authorize this app by visiting this url: ', authUrl);
+     //     let rl      = readline.createInterface({
+     //         input  : process.stdin,
+     //         output : process.stdout
+     //     });
+     //     rl.question('Enter the code from that page here: ', function(code) {
+     //         rl.close();
+     //         oauth2Client.getToken(code, function(err, token) {
+     //             if (err) {
+     //                 console.log('Error while trying to retrieve access token', err);
+     //                 return;
+     //             }
+     //             oauth2Client.credentials = token;
+     //             storeToken(token);
+     //             callback(oauth2Client);
+     //         });
+     //     });
+     // }
 
       getVideo(videoId){
         return new Promise((resolve, reject) =>{
@@ -88,7 +88,7 @@ module.exports = class Youtube {
         })
      }
 
-     uploadVideo(requestBody,media){
+    static uploadVideo(requestBody,media){
         return new Promise((resolve,reject)=>{
             service.vidoes.create({
 

@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/google_client_secret.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/youtube.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/youtube_storage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middlewares/youtube_videos_upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/mail/account_verification.pug" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mail/account_verification.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeders/20191023170157-default-status.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20191025100406-default-statuses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeders/20191023170711-default-userTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20191023170711-default-userTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendors/youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendors/youtube.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +128,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/models/user.js</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/helpers/fileUploader.js</url>
+          <line>3</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
