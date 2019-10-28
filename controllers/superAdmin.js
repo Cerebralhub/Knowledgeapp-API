@@ -5,6 +5,7 @@ const randomKeys                        =  require('../helpers/randomizer');
 const status                            =   require('../config/status');
 const mailHelper                        =   require('../helpers/mailer');
 const urlJoiner                         =   require('url-join');
+const youtube                           =   require('../vendors/youtube');
 
 module.exports = class SuperAdmin{
 
@@ -14,28 +15,29 @@ module.exports = class SuperAdmin{
             first_name  : req.body.first_name,
             last_name   : req.body.last_name,
             email       : req.body.email,
-            userType    : userTypes.superAdmin,
-            statusId      : status.unverified,
+            userType    : userTypes.admin,
+            statusId    : status.unverified,
             password    : req.body.password
 
         };
 
         randomKeys(30).then((keys)=>{
+
             userDets.reset_key = keys;
-            return  user.create(userDets)
+            return  user.create(userDets);
+
         }).then((result)=>{
 
-            let userResult = result.toJSON();
-
-            let url =   urlJoiner(process.env.APP_URL,'user/verify',userResult.email,userResult.resetKey );
-
-            let mailer = new mailHelper();
+            let userResult  = result.toJSON();
+            let url         = urlJoiner(process.env.APP_URL,'user/verify',userResult.email,userResult.resetKey );
+            let mailer      = new mailHelper();
 
             mailer.sender('Knowledge App Verification')
-                .recipient(userDets.email)
-                .subject('Knowledge App Email Verification')
-                .template('account_verification.pug',{url,userEmail:userDets.email})
-                .send(4);
+                  .recipient(userDets.email)
+                  .subject('Knowledge App Account Creation')
+                  .template('account_verification.pug',{url,userEmail:userDets.email,password:req.body.password})
+                  .send(4);
+
             res.withSuccess(201).reply();
 
         }).catch((error)=>{
@@ -52,8 +54,8 @@ module.exports = class SuperAdmin{
         userModel.findAll(
 
             {
-                where : req.query.q,
-                limit: req.query.perPage
+                where   : req.query.q,
+                limit   : req.query.perPage
             }
 
         ).then((results)=>{

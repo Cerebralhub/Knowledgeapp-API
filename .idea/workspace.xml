@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/20191002150105-create-education-level-type.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/20191023173517-user-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/google_client_secret.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendors/youtube.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191023103017-create-users.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20191023173858-users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20191023110704-create-categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20191023173920-categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mail/account_verification.pug" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mail/account_verification.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeders/20191023170157-default-status.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20191025100406-default-statuses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeders/20191023170711-default-userTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20191023170711-default-userTypes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Pug File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -38,6 +37,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -98,7 +98,11 @@
       <workItem from="1571750760724" duration="9525000" />
       <workItem from="1571826168605" duration="10627000" />
       <workItem from="1571839105341" duration="3049000" />
-      <workItem from="1571849858850" duration="2075000" />
+      <workItem from="1571849858850" duration="3461000" />
+      <workItem from="1571992997226" duration="9441000" />
+      <workItem from="1572018458270" duration="1529000" />
+      <workItem from="1572028090771" duration="4173000" />
+      <workItem from="1572251764899" duration="6575000" />
     </task>
     <servers />
   </component>
