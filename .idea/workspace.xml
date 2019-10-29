@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/helpers/youtube_storage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/youtube_videos_upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/youtube_storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/youtube_storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/superAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/youtube_videos_upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/youtube_videos_upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendors/youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendors/youtube.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +102,7 @@
       <workItem from="1572018458270" duration="1529000" />
       <workItem from="1572028090771" duration="4173000" />
       <workItem from="1572251764899" duration="6575000" />
+      <workItem from="1572341579794" duration="12825000" />
     </task>
     <servers />
   </component>
@@ -132,7 +135,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/helpers/fileUploader.js</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

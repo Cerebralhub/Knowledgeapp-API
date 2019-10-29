@@ -88,7 +88,7 @@ module.exports = class SuperAdmin{
 
 
     static uploadVideos(req,res){
-
+        res.withSuccess(200).withData(req.files).reply();
     }
 
 };

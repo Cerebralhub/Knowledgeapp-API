@@ -15,7 +15,8 @@ let acceptedHeader             = require('../middlewares/acceptedHeader');
 let validationHandler          = require('../middlewares/errorHandler');
 let youtubeSaver               = require('../middlewares/youtube_videos_upload');
 let smooch                     = require('../helpers/smooch');
-
+let multer                     = require('multer');
+let YoutubeStorage             = require('../helpers/youtube_storage');
 
 
 module.exports.apiV1 =  function (app) {
@@ -57,7 +58,10 @@ module.exports.apiV1 =  function (app) {
     router.post('/admin/users/create', cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
     router.get('/admin/users', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.getUsers(req,res)});
     router.get('/admin/users/update', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.updateUser(req,res)});
-    router.post('/admin/videos/create', [isLoggedIn(), isSuperAdmin(),youtubeSaver(), cors(corsOptions)],(req,res)=> {superAdmin.uploadVideos(req,res)});
+    router.post('/admin/video/create', [isLoggedIn(), isSuperAdmin(),
+            multer({
+                storage:   YoutubeStorage()
+            }).single('video'), cors(corsOptions)],(req,res)=> {superAdmin.uploadVideos(req,res)});
 
 
 

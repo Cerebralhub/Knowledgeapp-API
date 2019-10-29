@@ -36,7 +36,7 @@ module.exports = class Users{
                 userDet = userResult.toJSON();
                 return passwordHelper.isSame(req.body.password,userDet.password)
             }else{
-                return res.withClientError(404).withErrorData(error.acctNotExisting).repy();
+                return res.withClientError(404).withErrorData(error.acctNotExisting).reply();
             }
         }).then((passwordIsSame)=>{
             //if the passwords matches
@@ -55,6 +55,8 @@ module.exports = class Users{
                         return res.withSuccess(200).withData({token:code}).reply();
                     }
                 })
+            }else{
+                return res.withClientError(404).withErrorData(error.acctNotExisting).reply();
             }
         }).catch((error)=>{
             console.log(error);
