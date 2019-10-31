@@ -31,11 +31,7 @@ module.exports.apiV1 =  function (app) {
   };
 
 
-
-  // parse data with connect-multiparty.
-   app.use(formData.parse(options));
-   app.use(formData.format());
-   app.use(express.urlencoded({extended:true}));
+    app.use(express.urlencoded({extended:true}));
    //smooch middleware for helping in api responses and pagination
    app.use(smooch());
    router.use(cors(options));
@@ -49,19 +45,18 @@ module.exports.apiV1 =  function (app) {
 
 
   //General
-    router.post('/login',  cors(corsOptions),(req,res)=> {user.login(req,res)});
-    router.get('/user/verify/:email/:token',  cors(corsOptions),(req,res)=> {user.verify(req,res)});
-    router.post('/password/reset/init',  cors(corsOptions),(req,res)=> {user.passwordResetInit(req,res)});
-    router.post('/password/reset/:token',  cors(corsOptions),(req,res)=> {user.passwordReset(req,res)});
+    router.post('/login',multer().none(),  cors(corsOptions),(req,res)=> {user.login(req,res)});
+    router.get('/user/verify/:email/:token',  multer().none(),cors(corsOptions),(req,res)=> {user.verify(req,res)});
+    router.post('/password/reset/init', multer().none(), cors(corsOptions),(req,res)=> {user.passwordResetInit(req,res)});
+    router.post('/password/reset/:token',  multer().none(),cors(corsOptions),(req,res)=> {user.passwordReset(req,res)});
 
   //Super Admin Routes
-    router.post('/admin/users/create', cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
-    router.get('/admin/users', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.getUsers(req,res)});
-    router.get('/admin/users/update', [isLoggedIn(), isSuperAdmin(), cors(corsOptions)],(req,res)=> {superAdmin.updateUser(req,res)});
-    router.post('/admin/video/create', [isLoggedIn(), isSuperAdmin(),
-            multer({
-                storage:   YoutubeStorage()
-            }).single('video'), cors(corsOptions)],(req,res)=> {superAdmin.uploadVideos(req,res)});
+    router.post('/admin/users/create',multer().none(), cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
+    router.get('/admin/users', [isLoggedIn(), isSuperAdmin(), multer().none(), cors(corsOptions)],(req,res)=> {superAdmin.getUsers(req,res)});
+    router.get('/admin/users/update', [isLoggedIn(), isSuperAdmin(), multer().none(),cors(corsOptions)],(req,res)=> {superAdmin.updateUser(req,res)});
+    router.post('/admin/video/create', isLoggedIn(), isSuperAdmin(), function(req,res,next){
+        return multer({storage: new YoutubeStorage({})}).single('video')}, cors(corsOptions)
+        ,(req,res)=> {superAdmin.uploadVideos(req,res)});
 
 
 

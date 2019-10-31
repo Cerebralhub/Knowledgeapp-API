@@ -27,6 +27,8 @@ module.exports = class Users{
 
    static login(req,res){
 
+        console.log()
+
        let userDet;
 
        userModel.findOne({
@@ -48,7 +50,7 @@ module.exports = class Users{
                 //Implement JWT
                 var privateKey = fs.readFileSync('jwt_pk.key','utf8');
 
-                jwt.sign(payLoad,privateKey, { expiresIn: '2h',algorithm: 'RS256' },function (err,code) {
+                jwt.sign(payLoad,privateKey, { expiresIn: '10h',algorithm: 'RS256' },function (err,code) {
                     if (err){
                         return res.withServerError(500).reply();
                     }else{

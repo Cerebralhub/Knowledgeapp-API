@@ -1,83 +1,59 @@
-
-let fs          = require('fs');
-let readline    = require('readline');
-let {google}    = require('googleapis');
-let OAuth2      = google.auth.OAuth2;
-let SCOPES      = ['https://www.googleapis.com/auth/youtube.readonly'];
-let TOKEN_DIR   = (process.env.HOME || process.env.HOMEPATH ||
-    process.env.USERPROFILE) + '/.credentials/';
-let TOKEN_PATH  = TOKEN_DIR + 'youtube-nodejs-quickstart.json';
+var fs = require('fs');
+var readline = require('readline');
+var {google} = require('googleapis');
+var OAuth2 = google.auth.OAuth2;
 
 let apiKey      = process.env.YOUTUBE_KEY;
 
-let service     = google.youtube({
-                                    version:'v3',
-                                    auth:apiKey
-                                });
+function authorize(credentials, resolve,reject,opts) {
+    var clientSecret = credentials.installed.client_secret;
+    var clientId = credentials.installed.client_id;
+    var redirectUrl = credentials.installed.redirect_uris[0];
+    var oauth2Client = new OAuth2(clientId, clientSecret, redirectUrl);
 
+    // Check if we have previously stored a token.
+    fs.readFile(opts.oauth_token, function(err, token) {
+        if (err) {
+           reject('Error loading token file: ' + err)
+        } else {
+            oauth2Client.credentials = JSON.parse(token);
+            resolve(oauth2Client);
+        }
+    });
+}
 
 module.exports = class Youtube {
 
+        constructor(opts){
 
-     init (scope) {
+            if (!opts.client_secret) throw 'supplied client secret path invalid';
+            if (!opts.oauth_token) throw 'supplied auth token secret path invalid';
 
-        fs.readFile('google_client_secret.json', function processClientSecrets(err, content) {
-            if (err) {
-                console.log('Error loading client secret file: ' + err);
-                return;
-            }
-            // Authorize a client with the loaded credentials, then call the YouTube API.
-            this[authorize](JSON.parse(content));
-        });
+            return    this.init(opts);
+
+        }
 
 
-    }
-     //
-     // [authorize](token){
-     //
-     //     let clientSecret   = credentials.installed.client_secret;
-     //     let clientId       = credentials.installed.client_id;
-     //     let redirectUrl    = credentials.installed.redirect_uris[0];
-     //     let oauth2Client   = new OAuth2(clientId, clientSecret, redirectUrl);
-     //
-     //     // Check if we have previously stored a token.
-     //     fs.readFile(TOKEN_PATH, function(err, token) {
-     //         if (err) {
-     //             this[getNewToken](oauth2Client, callback);
-     //         } else {
-     //             oauth2Client.credentials = JSON.parse(token);
-     //             callback(oauth2Client);
-     //         }
-     //     });
-     //
-     // }
-     //
-     // [getNewToken] (){
-     //
-     //     let authUrl = oauth2Client.generateAuthUrl({
-     //         access_type: 'offline',
-     //         scope: SCOPES
-     //     });
-     //     console.log('Authorize this app by visiting this url: ', authUrl);
-     //     let rl      = readline.createInterface({
-     //         input  : process.stdin,
-     //         output : process.stdout
-     //     });
-     //     rl.question('Enter the code from that page here: ', function(code) {
-     //         rl.close();
-     //         oauth2Client.getToken(code, function(err, token) {
-     //             if (err) {
-     //                 console.log('Error while trying to retrieve access token', err);
-     //                 return;
-     //             }
-     //             oauth2Client.credentials = token;
-     //             storeToken(token);
-     //             callback(oauth2Client);
-     //         });
-     //     });
-     // }
+     init (opts) {
+       return new Promise((resolve,reject)=>{
+            fs.readFile(opts.client_secret,  (err, content)=> {
+                if (err) {
 
-      getVideo(videoId){
+                    console.log('Error loading client secret file: ' + err);
+                    reject('Error loading client secret file: ' + err);
+                    return;
+                }
+                // Authorize a client with the loaded credentials, then call the YouTube API.
+                return authorize(JSON.parse(content),resolve,reject,opts);
+            });
+        })
+
+
+     }
+
+
+
+    static  getVideo(videoId){
         return new Promise((resolve, reject) =>{
             service.videos.list({
                 auth: apiKey,
@@ -88,20 +64,25 @@ module.exports = class Youtube {
         })
      }
 
-    static uploadVideo(requestBody,media){
+    static uploadVideo(authKey,requestBody,media){
+        console.log('uploading video....');
         return new Promise((resolve,reject)=>{
-            service.vidoes.create({
+            let service     = google.youtube({
+                version:'v3',
+                auth:authKey
+            });
+            service.videos.insert({
 
-                params:{
                     part:'fileDetails,snippet',
                     notifySubscribers:true,
-                    stabilize:true
-                },
-                requestBody,
-                media
+                    stabilize:true,
+                    requestBody,
+                    media
+
             },function (err,response) {
                 if (err){reject(err)}else{
-                    resolve(resolve)
+
+                    resolve(response);
                 }
             })
         })
