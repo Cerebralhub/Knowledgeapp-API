@@ -73,7 +73,7 @@ module.exports = class Youtube {
             });
             service.videos.insert({
 
-                    part:'fileDetails,snippet',
+                    part:'snippet',
                     notifySubscribers:true,
                     stabilize:true,
                     requestBody,
@@ -81,11 +81,10 @@ module.exports = class Youtube {
 
             },function (err,response) {
                 if (err){reject(err)}else{
-
                     resolve(response);
                 }
             })
         })
      }
 
-}
+};

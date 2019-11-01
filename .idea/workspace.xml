@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd91998-43bf-46b3-a67b-9e70a280c61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/storage/credentials/youtube-nodejs-1572471983325.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/credential/youtube-token" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/credentials/youtube-token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../google-oauth-v3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../google-oauth-v3/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/knowledgeApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/knowledgeApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/superAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/superAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/youtube_storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/youtube_storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.v1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendors/youtube.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendors/youtube.js" afterDir="false" />
     </list>
@@ -41,16 +43,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Youtube-Cli/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Youtube-Cli/src" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Youtube-Cli/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -109,7 +112,9 @@
       <workItem from="1572251764899" duration="6575000" />
       <workItem from="1572341579794" duration="13433000" />
       <workItem from="1572387224805" duration="17683000" />
-      <workItem from="1572443667318" duration="32073000" />
+      <workItem from="1572443667318" duration="32425000" />
+      <workItem from="1572545748362" duration="7927000" />
+      <workItem from="1572607476535" duration="13618000" />
     </task>
     <servers />
   </component>

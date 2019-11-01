@@ -1,6 +1,6 @@
 jwt_pk.key
 jwt_pubk.key
-google_client_secret.json
+cs.json
 
 node_modules
 /node_modules

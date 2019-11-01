@@ -42,7 +42,21 @@ module.exports.apiV1 =  function (app) {
      })
    });
 
+   let youtubeStorage= new YoutubeStorage({
+       parameters:function (req,file,cb) {
 
+
+           let reqBody = {
+               snippet:{
+                   title        :req.body.title,
+                   description  :req.body.description,
+                   tags         :req.body.tags
+               }
+           }
+           cb(null,reqBody);
+       },
+       mimeType:'video/*'
+   });
 
   //General
     router.post('/login',multer().none(),  cors(corsOptions),(req,res)=> {user.login(req,res)});
@@ -54,9 +68,10 @@ module.exports.apiV1 =  function (app) {
     router.post('/admin/users/create',multer().none(), cors(corsOptions),(req,res)=> {superAdmin.create(req,res)});
     router.get('/admin/users', [isLoggedIn(), isSuperAdmin(), multer().none(), cors(corsOptions)],(req,res)=> {superAdmin.getUsers(req,res)});
     router.get('/admin/users/update', [isLoggedIn(), isSuperAdmin(), multer().none(),cors(corsOptions)],(req,res)=> {superAdmin.updateUser(req,res)});
-    router.post('/admin/video/create', isLoggedIn(), isSuperAdmin(), function(req,res,next){
-        return multer({storage: new YoutubeStorage({})}).single('video')}, cors(corsOptions)
-        ,(req,res)=> {superAdmin.uploadVideos(req,res)});
+    router.post('/admin/video/create', isLoggedIn(), isSuperAdmin(),multer({
+            storage:youtubeStorage
+        })
+        .single('video'), cors(corsOptions),(req,res)=> {superAdmin.uploadVideos(req,res)});
 
 
 
