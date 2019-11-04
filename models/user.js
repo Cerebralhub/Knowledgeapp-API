@@ -1,5 +1,9 @@
 'use strict';
+
+// const Status = require('./models/status');
+
   module.exports = (sequelize, DataTypes) => {
+    
     const User = sequelize.define('User', {
       first_name: {
         type:DataTypes.STRING,
@@ -23,38 +27,40 @@
       },
       dob:{
         type:DataTypes.DATEONLY,
-        
       },
       password:{
        type:DataTypes.STRING(550),
        allowNull: false,
-
       },
       statusId:{
           type:DataTypes.INTEGER,
           allowNull: false,
-
       },
       userType:{
           type:DataTypes.INTEGER,
           allowNull: false,
-
       },
       resetKey:{
           type:DataTypes.INTEGER,
           allowNull: true,
-
       },
       emailVerifiedAt:{
           type:DataTypes.DATE,
           allowNull: true,
-
       },
     });
   
     User.associate = function(models) {
       // associations can be defined here
+      //   User.belongsTo(Status, {
+      //     foreignKey: 'statusId',
+      //     id: 'statusId'
+      // });
+      // User.belongsTo(models.Status, {
+      //   foreignKey: 'id', 
+      //   as: 'userstatusId'
+      // });
     };
-    
+
     return User;
   }

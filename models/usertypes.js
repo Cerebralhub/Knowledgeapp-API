@@ -9,10 +9,14 @@ module.exports = (sequelize, DataTypes) => {
   
   UserTypes.associate = function(models) {
     // associations can be defined here
-    UserTypes.hasMany(models.users , {
-      foreignKey: 'userType',
-      key: 'id'
-    })
+    // UserTypes.belongsTo(models.User , {
+    //   foreignKey: 'userType',
+    //   as: 'userTypeId'
+    // }) 
+    // User.belongsTo(models.Status, {
+    //   foreignKey: 'id', 
+    //   as: 'userstatusId'
+    // });
   };
   return UserTypes;
 };

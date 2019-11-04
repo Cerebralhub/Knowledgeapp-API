@@ -1,29 +1,48 @@
 'use strict';
 
-const User = require('../models/users');
+
 
 module.exports = (sequelize, DataTypes) => {
+  
+  // const User = require('../models/user');
+
   const Status = sequelize.define('Status', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   });
 
-  Status.associate = function(models) {
-    Status.hasMany(models.users, {
-      foreignKey: 'statusId',
-      key: 'id'
-    })
+  // Status.associate = function(models) {
+    // Status.hasMany(models.user, {
+    //   foreignKey: 'statusId',
+    //   key: 'id'
+    // });
   
-    Status.hasMany(models.categories, {
-      foreignKey: 'statusId',
-      key: 'id'
-    })
-  }
+    // Status.hasMany(models.categories, {
+    //   foreignKey: 'statusId',
+    //   key: 'id'
+    // })
+  // }
 
-  // Status.belongsTo(User);
-  // User.hasMany(Status);
+  Status.associate = function(models) {
+    // Status.hasMany(models.categories, {
+    //   foreignKey: 'statusId',
+    //   key: 'id'
+    // })
+    Status.hasMany(models.User, {
+      foreignKey: 'statusId',
+      as: 'userStatusId'
+    });
+
+    Status.hasMany(models.UserTypes, {
+      foreignKey: 'statusId',
+      as: 'userTypesStatusId'
+    })
+  };
+
+  // Status.hasMany(User);
+  // User.belongsTo(Status);
 
   
   return Status;
