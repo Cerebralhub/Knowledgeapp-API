@@ -36,4 +36,4 @@ let videos = Videos.init({
 //   return videos;
 // };
 
-module.exports = videos;
+module.exports =  videos;
