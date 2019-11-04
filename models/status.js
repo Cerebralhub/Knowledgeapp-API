@@ -1,31 +1,28 @@
 'use strict';
 
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+module.exports = (sequelize, DataTypes) => {
+  const Status = sequelize.define('Status', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  });
 
-class Status extends Model{}
-
-let status = Status.init({
-  name: {
-    type: DataTypes.STRING,
-    unique: true,
+  Status.associate = function(models) {
+    Status.hasMany(models.users, {
+      foreignKey: 'statusId',
+      key: 'id'
+    })
+  
+    Status.hasMany(models.categories, {
+      foreignKey: 'statusId',
+      key: 'id'
+    })
   }
-}, {
-  sequelize: sequelize,
-  modelName: 'status'
-});
 
-Status.associate = function(models) {
-  Status.hasMany(models.users, {
-    foreignKey: 'statusId',
-    key: 'id'
-  })
-
-  Status.hasMany(models.categories, {
-    foreignKey: 'statusId',
-    key: 'id'
-  })
-}
+  
+  return Status;
+};
 
 // module.exports = (sequelize, DataTypes) => {
 //   const Status = sequelize.define('Status', {
@@ -42,4 +39,4 @@ Status.associate = function(models) {
 //   return Status;
 // };
 
-module.exports = status;
+module.exports = Status;

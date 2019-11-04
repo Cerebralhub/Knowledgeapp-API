@@ -28,7 +28,7 @@ let smooch = function (options) {
           case 401:
             message.error = {
               code:401,
-              message:"Permisstatuses.activesion Denied. You must log in"
+              message:"Permission Denied. You must log in"
             };
             break;
           case 403:
