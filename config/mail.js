@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
-console.log(process.env.MAIL_USERNAME,'mail user')
+// console.log(process.env.MAIL_USERNAME,'mail user')
 module.exports = {
   connection:{
     pool: true,
