@@ -1,4 +1,5 @@
 const userModel                         =  require("../models/user");
+const videoModel                        =  require('../models/videos');
 const user                              =  require('./users');
 const userTypes                         =  require('../config/userTypes');
 const randomKeys                        =  require('../helpers/randomizer');
@@ -88,8 +89,8 @@ module.exports = class SuperAdmin{
 
 
     static uploadVideos(req,res){
-        console.log(req.files,'files sdf')
-        res.withSuccess(200).withData(req.files).reply();
+
+        res.withSuccess(200).withData(req.youtube_response).reply();
     }
 
 };

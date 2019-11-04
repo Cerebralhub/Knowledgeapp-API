@@ -12,7 +12,7 @@ let status = Status.init({
   }
 }, {
   sequelize: sequelize,
-  modelName: status
+  modelName: 'status'
 });
 
 Status.associate = function(models) {

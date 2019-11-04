@@ -25,9 +25,9 @@ module.exports = class Youtube {
             ).then((authKey)=>{
                     return youtube.uploadVideo(authKey,reqBody,media);
             }).then((res)=>{
-                console.log(res,'this is here')
+                req.youtube_response = res;
                 cb(null,{
-                    path:res
+                    path:res.data
                 })
             }).catch((err)=>{
                 console.log(err);
