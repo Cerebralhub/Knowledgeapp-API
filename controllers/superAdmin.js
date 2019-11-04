@@ -1,5 +1,5 @@
 const userModel                         =  require("../models/user");
-const videoModel                        =  require('../models/videos');
+const videoModel                        =  require('../models').videos;
 const user                              =  require('./users');
 const userTypes                         =  require('../config/userTypes');
 const randomKeys                        =  require('../helpers/randomizer');

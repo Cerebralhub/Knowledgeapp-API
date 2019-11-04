@@ -39,4 +39,3 @@ module.exports = (sequelize, DataTypes) => {
 //   return Status;
 // };
 
-module.exports = Status;
