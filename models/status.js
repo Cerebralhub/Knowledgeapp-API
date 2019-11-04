@@ -8,17 +8,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  Status.associate = function(models) {
-    Status.hasMany(models.users, {
-      foreignKey: 'statusId',
-      key: 'id'
-    })
+  // Status.associate = function(models) {
+  //   Status.belongsTo(models.users, {
+  //     foreignKey: 'statusId',
+  //     key: 'id'
+  //   })
   
-    Status.hasMany(models.categories, {
-      foreignKey: 'statusId',
-      key: 'id'
-    })
-  }
+  //   Status.belongsTo(models.categories, {
+  //     foreignKey: 'statusId',
+  //     key: 'id'
+  //   })
+  // }
+
+  Status.belongsTo(User);
+  User.hasMany(Status);
 
   
   return Status;
