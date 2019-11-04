@@ -1,96 +1,60 @@
 'use strict';
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+  module.exports = (sequelize, DataTypes) => {
+    const Users = sequelize.define('Users', {
+      first_name: {
+        type:DataTypes.STRING,
+        allowNull: false,
+      },
+      last_name: {
+        type:DataTypes.STRING,
+        allowNull: false,
+      },
+      user_name:{
+        //User Names shouldn't be more than 50 characters
+        //TODO validate user_name uniqueness//
+        type:DataTypes.STRING(50),
+        allowNull: true,
+        unique: true,
+      },
+      email: {
+        type:DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      dob:{
+        type:DataTypes.DATEONLY,
+        
+      },
+      password:{
+       type:DataTypes.STRING(550),
+       allowNull: false,
 
-class Users extends Model{}
+      },
+      statusId:{
+          type:DataTypes.INTEGER,
+          allowNull: false,
 
-const users = Users.init({
-  first_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  last_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  user_name:{
-    //User Names shouldn't be more than 50 characters
-    //TODO validate user_name uniqueness//
-    type:DataTypes.STRING(50),
-    allowNull: true,
+      },
+      userType:{
+          type:DataTypes.INTEGER,
+          allowNull: false,
 
-    validate: {
-      max:50,
-        isUnique:function(value){
-          if (value){
-              return users.findOne({
-                  where:{userName:value}
-              }).then((user)=>{
-                  if (user) {
-                      throw new Error('Email already in use');
-                  }
-              })
-          }
-        }
-    },
-    category:{
-      type: DataTypes.INTEGER,
-      validate:{
-        isNumeric:true
-      }
-    }
-  },
-  email: {
-    type:DataTypes.STRING,
-    allowNull: false,
+      },
+      resetKey:{
+          type:DataTypes.INTEGER,
+          allowNull: true,
 
-      validate:{
-      isEmail: true,
-      isUnique:function(value){
-        return users.findOne({
-                  where:{email:value}
-              }).then((user)=>{
-                    if (user) {
-                        throw new Error('Email already in use');
-                    }
-              })
-      }
+      },
+      emailVerifiedAt:{
+          type:DataTypes.DATE,
+          allowNull: true,
 
-    },
-  },
-  dob:{
-    type:DataTypes.DATEONLY,
-    validate:{
-      isDate:true
-    }
-  },
-  password:{
-    type:DataTypes.STRING(550),
-    allowNull: false,
-  },
-  statusId:{
-    type:DataTypes.INTEGER,
-    allowNull: false,
-  },
-  userType:{
-    type:DataTypes.INTEGER,
-    allowNull: false,
-  },
-  resetKey:{
-    type:DataTypes.STRING(550),
-    allowNull: true,
-  },
-  emailVerifiedAt:{
-    type:DataTypes.DATE,
-    allowNull: true,
-  },
-  },
-  {
-    sequelize:sequelize,
-  });
-
-  users.associate = function(models) {
+      },
+    });
+  
+    Users.associate = function(models) {
       // associations can be defined here
-  };
-
-  module.exports = users;
+    };
+    
+    return Users;
+  }
