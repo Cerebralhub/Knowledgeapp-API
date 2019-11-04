@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     video_url: {
       type: DataTypes.STRING,
       allowNull: false,
+
     },
     video_description: {
       type: DataTypes.TEXT,
