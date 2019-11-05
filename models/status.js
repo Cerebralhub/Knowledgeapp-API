@@ -38,6 +38,11 @@ module.exports = (sequelize, DataTypes) => {
     Status.hasMany(models.UserTypes, {
       foreignKey: 'statusId',
       as: 'userTypesStatusId'
+    });
+
+    Status.hasMany(models.Videos, {
+      foreignKey: 'statusId',
+      as: 'videosStatusId'
     })
   };
 
